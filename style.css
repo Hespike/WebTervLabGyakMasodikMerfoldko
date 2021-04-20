@@ -1,0 +1,102 @@
+html{
+    background-color: #faebd7;
+}
+
+body{
+    margin: 0 auto;
+}
+
+header{
+    display: grid;
+    grid-column: 1;
+    height: 200px;
+    align-items: center;
+    padding-left: 30px;
+    font-size: xx-large;
+    background: brown;
+    background-image: url(../img/background3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+main{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.tartalom{
+    clear: left;
+    float: left;
+    width: 65%;
+    padding: 20px 0;
+    margin: 0 0 0 5%;
+    display: inline;
+    letter-spacing: 1px;
+    white-space:inherit;
+}
+
+.bemutatkozas{
+    padding: 0;
+    margin: 20px;
+    text-shadow: 1px 1px 1px blue;
+    letter-spacing: 2px;
+}
+
+.bemutatkozas h1{
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+/*Oldalsáv formázása*/
+aside{
+    float: right;
+    position: relative;
+    left: 0px;
+    padding: 20px 0;
+    margin: 0;
+    display: inline;
+    background-color: #d1c5b4;
+    list-style-position: inside;
+    list-style-image: url('../img/list_ikon.gif');    
+}
+/* anchor állapotai */
+a:link {
+    color: green;
+  }
+  
+  a:visited {
+    color: gray;
+  }
+  
+  a:hover {
+    color: orange;
+  }
+  
+  a:active {
+    color: red;
+  }
+
+
+/*Lábléc formázása*/
+footer{
+    position: static;
+    box-sizing: inherit;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    clear: left;
+    background-color: #cccccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    height: 1%;  
+}
+
+/*Lábléc első szövegének a formázása*/
+.szoveg_lab{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}

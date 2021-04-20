@@ -1,0 +1,90 @@
+/*table {
+    width: 100%;
+}
+*/
+
+/*Bekezdés formázása*/
+.szoveg{
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 10px;
+    margin-right: 0;
+    font-size: 14pt;
+}
+
+/*A táblázatok egymás mellett jelennek meg*/
+.tablazat_alap, .tablazat_tuzhely{
+    display: inline;
+    float: left;
+    
+}
+
+/*Címsor formázása, lekerekített kerettel*/
+h1{
+    margin: 20px;
+    font-family: arial;
+    text-align: center;
+    border: 1pt solid #000;
+    border-radius: 5px;
+}
+
+caption{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: larger;
+
+}
+
+/*Alap táblázatra vonatkozó részek*/
+/*h2{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: larger;
+}*/
+
+.tablazat_alap{
+    margin: 20px;
+    text-align: center;
+}
+
+.alap{
+    border: 2px solid #000;
+    text-align: center;
+}
+
+.alap td,th{
+    border: 1px solid #000;
+    padding: 15px;
+}
+
+.alap thead{
+    font-family: arial;
+    font-size: large;
+    font-weight: bold;
+}
+
+/*Tűzhely táblázatra vonatkozó részek*/
+.tablazat_tuzhely{
+    margin: 20px;
+    text-align: center; 
+}
+
+.tuzhely{
+    border: 2px solid #000;
+    text-align: center;
+    float: left;
+}
+
+.tuzhely td,th{
+    border: 1px solid #000;
+    padding: 15px;
+}
+
+.tuzhely thead{
+    font-family: arial;
+    font-size: large;
+    font-weight: bold;
+}
