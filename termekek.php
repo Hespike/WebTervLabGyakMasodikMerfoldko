@@ -3,7 +3,7 @@ include_once "tartalom.php";
 include_once "felhasznalok.php";
 
 if(!isset($_SESSION["user"])){
-    header('Location: felhasznalok.php');
+    header('Location: bejelentkezes.php');
 } else {
     $datum= new DateTime();
     $datum->setTimezone(new DatetimeZone("Europe/Budapest"));
@@ -31,7 +31,7 @@ if(isset($_GET["alomdb"]) && ($_GET["alomdb"])>0){
             $uzenet.="<p>Darab:".$_GET["wcdb"]."* 1000</p>";
             $osszeg+=$_GET["wcdb"]*1000;
                 }
-                $uzenet.='<p>Összesen: '.$osszeg.' Ft</p>>';
+                $uzenet.='<p>Összesen: '.$osszeg.' Ft</p>';
     }
 }
 
@@ -68,8 +68,11 @@ if(isset($_GET["alomdb"]) && ($_GET["alomdb"])>0){
                     </ul>
                 </nav>
             </header>
-
             <main>
+
+            <?php
+            if(!isset($_GET["fizetes"])){
+                echo '
                 <h2>Termékeink</h2>
                 <form action="termekek.php" method="get" enctype="multipart/form-data">
                 <thead>
@@ -96,9 +99,15 @@ if(isset($_GET["alomdb"]) && ($_GET["alomdb"])>0){
                 </tbody>
 </table>
 <br/>
-<input type="submit" value="Fizetés"/>            
-        </main>
-        <?php
+<input type="submit" value="Fizetés" name="fizetes"/>  
+</form>  
+                ';
+            } else {
+                echo $uzenet;
+            }
+            ?>    
+</main>
+<?php
 footer()
 ?>
     </body>
