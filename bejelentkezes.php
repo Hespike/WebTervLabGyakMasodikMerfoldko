@@ -6,7 +6,7 @@ if (isset($_POST["bej"])){
     if (isset($_POST["fnevbe"]) && isset($_POST["jelszobe"])){
         $belepes = false;
         foreach ($_SESSION["regisztraltFelhasznalok"] as $userobj){
-            if ($userobj->getFnev() ==$_POST["fnevbe"] && $userobj->getJelszo() == $_POST["jelszobe"]){
+            if ($userobj->getFnev()==$_POST["fnevbe"] && $userobj->getJelszo() == $_POST["jelszobe"]){
                 $belepes = true;
                 $_SESSION["user"]=$userobj;
                 break;
@@ -80,12 +80,12 @@ if (isset($_POST["ki"])){
                 ';
             }else{
                 echo '
-                    <img src="profil/"'.$_SESSION["user"]->getKep().' alt="profilkep">
+                    <img src="profil/'.$_SESSION["user"]->getKep().'" alt="profilkep" width="200"/>
                     <p>Név: '.$_SESSION["user"]->getNev().'</p>
                     <p>Felhasználónév: '.$_SESSION["user"]->getFnev().'</p>
                     <p>E-mail: '.$_SESSION["user"]->getEmail().'</p>
                     <p>Telefonszám: '.$_SESSION["user"]->getTelszam().'</p>
-                    <form id="kijelentkezes" action="profil.php" method="post" enctype="multipart/form-data">
+                    <form id="kijelentkezes" action="bejelentkezes.php" method="post" enctype="multipart/form-data">
                     <input type="submit" value="Kijelentkezés" name="ki">
                     </form>
                 ';
@@ -101,3 +101,4 @@ if (isset($_POST["ki"])){
 </main>
 </body>
 </html>
+
