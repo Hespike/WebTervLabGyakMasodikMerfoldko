@@ -1,5 +1,6 @@
 <?php
 include_once "tartalom.php";
+include_once "felhasznalok.php";
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -25,9 +26,21 @@ include_once "tartalom.php";
                         <li><a href="referencia.php">Referenciák</a></li>
                         <li><a href="rolam.php">Rólam</a></li>
                         <li><a href="kapcsolat.php">Kapcsolat</a></li>
+                        <?php
+                        if(!isset($_SESSION["user"])){
+                        echo ' 
                         <li><a href="regisztracio.php">Regisztráció</a></li>
                         <li><a href="bejelentkezes.php">Bejelentkezés</a></li>
-                        <li><a href="termekek.php">Speciális ajánlatok</a></li>
+                        
+                        ';
+                        }else{
+                           echo '
+                        <li><a href="bejelentkezes.php">Profil</a></li>
+                        <li><a href="termekek.php">Speciális ajánlatok</a></li> 
+                        ';
+                        }
+                        ?>
+
                     </ul>
                 </nav>
             </header>
