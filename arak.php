@@ -28,6 +28,7 @@ include_once "tartalom.php";
                         <li><a href="kapcsolat.php">Kapcsolat</a></li>
                         <li><a href="regisztracio.php">Regisztráció</a></li>
                         <li><a href="bejelentkezes.php">Bejelentkezés</a></li>
+                        <li><a href="termekek.php">Speciális ajánlatok</a></li>
                     </ul>
                 </nav>
             </header>
