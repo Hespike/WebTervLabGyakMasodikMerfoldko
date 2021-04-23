@@ -52,7 +52,7 @@ if(isset($_POST["submit-btn"])) {
                 die("<strong>HIBA:</strong> A kép kiterjesztése nem megfelelő! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
             }
         }
-        $uj = new Users($_POST["nev"], $_POST["fnev"], $_POST["jelszo"], $_POST["jelszoujra"], $_POST["telszam"], $_POST["email"], $_POST["fnev"].".".$kepkiterjesztes);
+        $uj = new User($_POST["nev"], $_POST["fnev"], $_POST["jelszo"], $_POST["jelszoujra"], $_POST["telszam"], $_POST["email"], $_POST["fnev"].".".$kepkiterjesztes);
         array_push($_SESSION["regisztraltFelhasznalok"], $uj);
         $uj->kiir();
         $uzenet .= "\nSikeres regisztráció!";
@@ -97,7 +97,7 @@ if(isset($_POST["submit-btn"])) {
                         echo "<p>".$uzenet."</p>"
                         ?>
                         <br/>
-                        <form method = "post" acttion="regisztracio.php" enctype="multipart/form-data">
+                        <form method = "post" action="regisztracio.php" enctype="multipart/form-data">
                             <fieldset>
                                 <legend>Regisztráljon, hogy hamarabb értesüljön híreinkről:</legend>
                                 <label for="nev">Teljes név:</label>
