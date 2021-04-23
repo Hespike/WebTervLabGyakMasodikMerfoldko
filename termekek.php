@@ -75,6 +75,8 @@ if(isset($_GET["alomdb"]) && ($_GET["alomdb"])>0){
                 echo '
                 <h2>Termékeink</h2>
                 <form action="termekek.php" method="get" enctype="multipart/form-data">
+                <table>
+                <caption>Színes termékek</caption>
                 <thead>
                 <tr>
                     <th id="nev">Megnevezés</th>
