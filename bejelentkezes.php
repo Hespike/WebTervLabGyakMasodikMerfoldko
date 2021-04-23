@@ -52,6 +52,7 @@ if (isset($_POST["ki"])){
             <li><a href="kapcsolat.php">Kapcsolat</a></li>
             <li><a href="regisztracio.php">Regisztráció</a></li>
             <li><a class="active" href="bejelentkezes.php">Bejelentkezés</a></li>
+            <li><a href="termekek.php">Speciális ajánlatok</a></li>
 
         </ul>
     </nav>
