@@ -13,10 +13,10 @@ if (isset($_POST["bej"])){
             }
         }
         if (!$belepes){
-            die("<strong>Hiba: </strong> Sikertelen bejelentkezés, az egyik adat helytelen! <a href='bejelentkezes.php'>Vissza a bejelentkezési oldalra.</a>");
+            die("<strong>Hiba: </strong> Sikertelen bejelentkezés, egy vagy több mező helytelenül lett kitöltve! <a href='bejelentkezes.php'>Visszatérés a bejelentkezési oldalra.</a>");
         }
     }else{
-        die("<strong>Hiba: </strong> Sikertelen bejelentkezés, az egyik mező nem lett kitöltve! <a href='bejelentkezes.php'>Vissza a bejelentkezési oldalra.</a>");
+        die("<strong>Hiba: </strong> Sikertelen bejelentkezés, egy vagy több mező nem lett kitöltve! <a href='bejelentkezes.php'>Visszatérés a bejelentkezési oldalra.</a>");
     }
 }
 if (isset($_POST["ki"])){
