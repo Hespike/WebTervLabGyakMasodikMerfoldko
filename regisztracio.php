@@ -8,19 +8,19 @@ $uzenet="";
 if(isset($_POST["submit-btn"])) {
     if (!isset($_POST["nev"]) || !isset($_POST["fnev"]) || !isset($_POST["jelszo"])
         || !isset($_POST["telszam"]) || !isset($_POST["email"])) {
-        die("<strong>HIBA:</strong> Nincs minden kötelező mező kitöltve! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+        die("<strong>HIBA:</strong> Töltsön ki minden mezőt! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
     }
     if (strlen($_POST["fnev"])<5){
-        die("<strong>HIBA:</strong> A felhasználónévnek legalább 5 karakter hosszúnak kell lennie! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+        die("<strong>HIBA:</strong> A felhasználónév nem elég hosszú. A felhasználónévnek legalább 5 karakter hosszúnak kell lennie! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
     }
     if (strlen($_POST["jelszo"]) < 8) {
-        die("<strong>HIBA:</strong> A jelszónak legalább 8 karakter hosszúnak kell lennie! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+        die("<strong>HIBA:</strong> A jelszó minimum megengedett hossza 8 karakter! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
     }
     if (strlen($_POST["jelszo"]) > 12) {
-        die("<strong>HIBA:</strong> A jelszó nem lehet több mint 12 karakter! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+        die("<strong>HIBA:</strong> A jelszó maximum megengedett hossza 12 karakter! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
     }
     if ($_POST["jelszo"] !== $_POST["jelszoujra"]) {
-        die("<strong>HIBA:</strong> A két jelszónak meg kell egyeznie! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+        die("<strong>HIBA:</strong> A két jelszó különböző! Kérjük adjon meg azonos jelszavakat! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
     }
     for ($i = 0; $i < count($_SESSION["regisztraltFelhasznalok"]); $i++) {
         if ($_SESSION["regisztraltFelhasznalok"][$i]->getFnev() == $_POST["fnev"]) {
@@ -28,7 +28,7 @@ if(isset($_POST["submit-btn"])) {
         }
     }
     if ($fnevfoglalt) {
-        die("<strong>HIBA:</strong> A felhasználónév már foglalt! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+        die("<strong>HIBA:</strong>Már foglalt felhasználónevet adott meg! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
     } else {
         if (isset($_FILES["kep"])) {
             $kiterjesztesek = ["jpg", "png"];
@@ -38,24 +38,24 @@ if(isset($_POST["submit-btn"])) {
                     if ($_FILES["kep"]["size"] <= 31457280) {
                         $cel = "profil/" . $_POST["fnev"] . "." . $kepkiterjesztes;
                         if (move_uploaded_file($_FILES["kep"]["tmp_name"], $cel)) {
-                            $uzenet .= "Sikeres fájlfeltötlés!";
+                            $uzenet .= "A fájlfeltötlés sikeres volt!";
                         } else {
-                            die("<strong>HIBA:</strong> A kép átmozgatása nem sikerült! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+                            die("<strong>HIBA:</strong> A feltöltött kép átmozgatása nem sikerült! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
                         }
                     } else {
-                        die("<strong>HIBA:</strong> A kép mérete túl nagy! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+                        die("<strong>HIBA:</strong> A kiválasztott kép mérete túl nagy! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
                     }
                 } else {
-                    die("<strong>HIBA:</strong> A kép feltöltése során hiba lépett fel, a kép feltöltése sikertelen!! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+                    die("<strong>HIBA:</strong> A kép feltöltése során hiba lépett fel, a kép feltöltése sikertelen! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
                 }
             } else {
-                die("<strong>HIBA:</strong> A kép kiterjesztése nem megfelelő! <a href='regisztracio.php'>Vissza a Regisztrációhoz</a>");
+                die("<strong>HIBA:</strong> A kép kiterjesztése nem megfelelő! <a href='regisztracio.php'>Visszatérés a Regisztrációhoz</a>");
             }
         }
         $uj = new User($_POST["nev"], $_POST["fnev"], $_POST["jelszo"], $_POST["jelszoujra"], $_POST["telszam"], $_POST["email"], $_POST["fnev"].".".$kepkiterjesztes);
         array_push($_SESSION["regisztraltFelhasznalok"], $uj);
         $uj->kiir();
-        $uzenet .= "\nSikeres regisztráció!";
+        $uzenet .= "\n A regisztráció sikeres volt!";
     }
 }
 ?>
